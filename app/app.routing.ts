@@ -10,7 +10,7 @@ import { CommentComponent } from './comments/comments.component';
 const appRoutes: Routes = [
     { path: 'users', component: UserComponent},
     { path: 'users/:id/posts', component: PostComponent},
-    { path: 'users/:id/posts/:postId/comments', component: CommentComponent}
+    { path: 'users/:id/posts/comments/:postId', component: CommentComponent}
 
     // { path: '**', component: NotFoundComponent }
 

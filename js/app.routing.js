@@ -21,7 +21,7 @@ System.register(['@angular/router', './users/users.component', './posts/posts.co
             appRoutes = [
                 { path: 'users', component: users_component_1.UserComponent },
                 { path: 'users/:id/posts', component: posts_component_1.PostComponent },
-                { path: 'users/:id/posts/:postId/comments', component: comments_component_1.CommentComponent }
+                { path: 'users/:id/posts/comments/:postId', component: comments_component_1.CommentComponent }
             ];
             exports_1("routing", routing = router_1.RouterModule.forRoot(appRoutes, { useHash: true }));
         }

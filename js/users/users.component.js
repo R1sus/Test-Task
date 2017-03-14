@@ -21,7 +21,6 @@ System.register(['@angular/core', '../_services/http.service'], function(exports
                 http_service_1 = http_service_1_1;
             }],
         execute: function() {
-            // import { Post } from '../_models/post';
             UserComponent = (function () {
                 function UserComponent(httpService) {
                     this.httpService = httpService;

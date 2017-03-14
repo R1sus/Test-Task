@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { HttpService } from '../_services/http.service';
 import { User } from '../_models/user';
-// import { Post } from '../_models/post';
+
 
 @Component({
     moduleId: module.id,

@@ -10,6 +10,10 @@ export class HttpService{
         return this.http.get(`https://jsonplaceholder.typicode.com/users`)
             .map((res:Response) => res.json());
     }
+    getUser(id) {
+        return this.http.get(`https://jsonplaceholder.typicode.com/users?id=`+ id)
+            .map((res:Response) => res.json());
+    }
     getPost(userId){
         return this.http.get(`https://jsonplaceholder.typicode.com/posts?userId=`+ userId)
             .map((res:Response) => res.json());

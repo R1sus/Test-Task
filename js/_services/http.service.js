@@ -30,6 +30,10 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/map'], fun
                     return this.http.get("https://jsonplaceholder.typicode.com/users")
                         .map(function (res) { return res.json(); });
                 };
+                HttpService.prototype.getUser = function (id) {
+                    return this.http.get("https://jsonplaceholder.typicode.com/users?id=" + id)
+                        .map(function (res) { return res.json(); });
+                };
                 HttpService.prototype.getPost = function (userId) {
                     return this.http.get("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
                         .map(function (res) { return res.json(); });
