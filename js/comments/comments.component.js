@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../_services/http.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../_services/http.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,43 +10,38 @@ System.register(['@angular/core', '../_services/http.service'], function(exports
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_service_1;
+    var core_1, router_1, http_service_1;
     var CommentComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (http_service_1_1) {
                 http_service_1 = http_service_1_1;
             }],
         execute: function() {
             CommentComponent = (function () {
-                function CommentComponent(httpService) {
+                function CommentComponent(httpService, activateRoute) {
                     this.httpService = httpService;
-                    this.users = [];
-                    this.posts = [];
-                    this.done = false;
+                    this.comments = [];
+                    this.postId = activateRoute.snapshot.params['postId'];
                 }
-                // user = {};
                 CommentComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.httpService.getData().subscribe(function (data) { return _this.users = data; });
-                };
-                CommentComponent.prototype.getPost = function (userId) {
-                    var _this = this;
-                    console.log(userId);
-                    this.httpService.getPost(userId)
-                        .subscribe(function (data) { _this.posts = data; _this.done = true; });
+                    this.httpService.getPost(this.postId).subscribe(function (data) { return _this.comments = data; });
                 };
                 CommentComponent = __decorate([
                     core_1.Component({
                         moduleId: module.id,
                         selector: 'comments',
-                        template: "<h2>Comments on {{ post.title }}</h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let user of users\" (click)=\"getPost(user.id)\">\n               <p hidden>{{user.id}}</p>\n               <p>{{user?.username}}</p>\n               <p>Email: <a href=\"#\">{{user?.email}}</a></p>\n               <p>Company: {{user?.company.name}}</p>\n               <p>Phone: <a href=\"#\">{{user?.phone}}</a></p>\n             </li> \n             <div *ngIf=\"done\"> \n               <li *ngFor=\"let post of posts\" >\n                 <p><b>{{ post.title }}</b></p>\n                 <p>{{ post.body }}</p>\n             \n                </li>\n             </div>\n \n          </ul>\n       </div>\n\n",
+                        template: "<h2>Comments on post.title </h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let comment of comments\">\n               <!--<p hidden>{{comment.id}}</p>-->\n                <p><b>Title:{{comment?.name}}</b></p>\n                <p>Body: {{comment?.body}}</p>\n                <p><a href=\"#\">Email: {{comment?.email}}</a></p>\n              </li>\n          </ul>\n      </div>\n       \n\n",
                         providers: [http_service_1.HttpService]
                     }), 
-                    __metadata('design:paramtypes', [http_service_1.HttpService])
+                    __metadata('design:paramtypes', [http_service_1.HttpService, router_1.ActivatedRoute])
                 ], CommentComponent);
                 return CommentComponent;
             }());

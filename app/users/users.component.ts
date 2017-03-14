@@ -11,20 +11,13 @@ import { User } from '../_models/user';
       <div>
           <ul>
              <li *ngFor="let user of users"> 
-             <!--(click)="getPost(user.id)">-->
+            
                <p hidden>{{user.id}}</p>
-               <a [routerLink] = "['posts', user.id ]"> <p>{{user?.username}}</p></a>
+               <a [routerLink] = "[ user.id, 'posts' ]"> <p>{{user?.username}}</p></a>
                <p>Email: <a href="#">{{user?.email}}</a></p>
                <p>Company: {{user?.company.name}}</p>
                <p>Phone: <a href="#">{{user?.phone}}</a></p>
              </li> 
-             <!--<div *ngIf="done"> -->
-               <!--<li *ngFor="let post of posts" >-->
-                 <!--<p><b>{{ post.title }}</b></p>-->
-                 <!--<p>{{ post.body }}</p>-->
-             <!---->
-                <!--</li>-->
-             <!--</div>-->
  
           </ul>
           <!--{{ user | json }}-->
@@ -39,20 +32,13 @@ export class UserComponent implements  OnInit{
     constructor(private httpService: HttpService) {
     }
     users: User[]=[];
-    // posts: Post[]=[];
-    // user = {};
+
     ngOnInit() {
 
         this.httpService.getData().subscribe(data => this.users= data);
     }
 
-    // done: boolean = false;
-    // getPost(userId:number) {
-    //     console.log(userId);
-    //     this.httpService.getPost(userId)
-    //         .subscribe((data) => {this.posts =data; this.done=true;});
-    //
-    // }
+
 
 }
 

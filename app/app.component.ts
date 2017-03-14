@@ -5,12 +5,7 @@ import { HttpService} from './_services/http.service';
     selector: 'my-app',
     template: `<h1>Welcome!</h1>
     <router-outlet></router-outlet>
-`,
-    styles: [` 
-        .active a {
-        color:#606060;
-        }
-    `],
+    `,
     providers: [HttpService]
 })
 export class AppComponent {

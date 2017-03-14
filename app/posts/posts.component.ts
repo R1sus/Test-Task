@@ -8,12 +8,12 @@ import { Post } from '../_models/post';
 @Component({
     moduleId: module.id,
     selector: 'posts',
-    template: `<h2>Post from </h2>
+    template: `<h2>Posts from user.username user.email </h2>
       <div>
           <ul>
              <li *ngFor="let post of posts">
-               <!--<p hidden>{{post.id}}</p>-->
-               <p><b>Title:{{post?.title}}</b></p>
+               <p hidden>{{post.id}}</p>
+               <a [routerLink] = "[post.id,'comments']"><p><b>Title:{{post?.title}}</b></p></a>
                <p>Body: {{post?.body}}</p>
               
               </li>
@@ -33,18 +33,11 @@ export class PostComponent implements  OnInit {
     }
 
     posts: Post[]=[];
-    
+
     ngOnInit() {
             this.httpService.getPost(this.userId).subscribe(data => this.posts = data);
-        // this.httpService.getData().subscribe(data => this.users= data);
+
     }
-
-    // done: boolean = false;
-    // getPost(userId:number) {
-    //     console.log(userId);
-    //     this.httpService.getPost(userId)
-    //         .subscribe((data) => {this.posts =data; this.done=true;});
-
 
 
 }

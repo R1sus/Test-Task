@@ -2,14 +2,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule }  from '@angular/platform-browser';
 import { UserComponent } from './users/users.component';
 import { PostComponent } from './posts/posts.component';
+import { CommentComponent } from './comments/comments.component';
 
 
 
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/users', pathMatch:'full'},
     { path: 'users', component: UserComponent},
-    { path: 'users/posts/:id', component: PostComponent}
+    { path: 'users/:id/posts', component: PostComponent},
+    { path: 'users/:id/posts/:postId/comments', component: CommentComponent}
+
     // { path: '**', component: NotFoundComponent }
 
 ];

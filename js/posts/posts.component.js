@@ -33,13 +33,12 @@ System.register(['@angular/core', '@angular/router', '../_services/http.service'
                 PostComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.httpService.getPost(this.userId).subscribe(function (data) { return _this.posts = data; });
-                    // this.httpService.getData().subscribe(data => this.users= data);
                 };
                 PostComponent = __decorate([
                     core_1.Component({
                         moduleId: module.id,
                         selector: 'posts',
-                        template: "<h2>Post from </h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let post of posts\">\n               <!--<p hidden>{{post.id}}</p>-->\n               <p><b>Title:{{post?.title}}</b></p>\n               <p>Body: {{post?.body}}</p>\n              \n              </li>\n          </ul>\n      </div>\n\n",
+                        template: "<h2>Posts from user.username user.email </h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let post of posts\">\n               <p hidden>{{post.id}}</p>\n               <a [routerLink] = \"[post.id,'comments']\"><p><b>Title:{{post?.title}}</b></p></a>\n               <p>Body: {{post?.body}}</p>\n              \n              </li>\n          </ul>\n      </div>\n\n",
                         providers: [http_service_1.HttpService]
                     }), 
                     __metadata('design:paramtypes', [http_service_1.HttpService, router_1.ActivatedRoute])

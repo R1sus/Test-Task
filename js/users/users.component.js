@@ -27,8 +27,6 @@ System.register(['@angular/core', '../_services/http.service'], function(exports
                     this.httpService = httpService;
                     this.users = [];
                 }
-                // posts: Post[]=[];
-                // user = {};
                 UserComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.httpService.getData().subscribe(function (data) { return _this.users = data; });
@@ -37,7 +35,7 @@ System.register(['@angular/core', '../_services/http.service'], function(exports
                     core_1.Component({
                         moduleId: module.id,
                         selector: 'users',
-                        template: "<h2>Users</h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let user of users\"> \n             <!--(click)=\"getPost(user.id)\">-->\n               <p hidden>{{user.id}}</p>\n               <a [routerLink] = \"['posts', user.id ]\"> <p>{{user?.username}}</p></a>\n               <p>Email: <a href=\"#\">{{user?.email}}</a></p>\n               <p>Company: {{user?.company.name}}</p>\n               <p>Phone: <a href=\"#\">{{user?.phone}}</a></p>\n             </li> \n             <!--<div *ngIf=\"done\"> -->\n               <!--<li *ngFor=\"let post of posts\" >-->\n                 <!--<p><b>{{ post.title }}</b></p>-->\n                 <!--<p>{{ post.body }}</p>-->\n             <!---->\n                <!--</li>-->\n             <!--</div>-->\n \n          </ul>\n          <!--{{ user | json }}-->\n       </div>\n\n",
+                        template: "<h2>Users</h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let user of users\"> \n            \n               <p hidden>{{user.id}}</p>\n               <a [routerLink] = \"[ user.id, 'posts' ]\"> <p>{{user?.username}}</p></a>\n               <p>Email: <a href=\"#\">{{user?.email}}</a></p>\n               <p>Company: {{user?.company.name}}</p>\n               <p>Phone: <a href=\"#\">{{user?.phone}}</a></p>\n             </li> \n \n          </ul>\n          <!--{{ user | json }}-->\n       </div>\n\n",
                         providers: [http_service_1.HttpService]
                     }), 
                     __metadata('design:paramtypes', [http_service_1.HttpService])

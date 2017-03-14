@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
+import { ActivatedRoute} from '@angular/router'
 import { HttpService } from '../_services/http.service';
 import { User } from '../_models/user';
 import { Post } from '../_models/post';
@@ -8,26 +9,18 @@ import { Comment } from '../_models/comment';
 @Component({
     moduleId: module.id,
     selector: 'comments',
-    template: `<h2>Comments on {{ post.title }}</h2>
+    template: `<h2>Comments on post.title </h2>
       <div>
           <ul>
-             <li *ngFor="let user of users" (click)="getPost(user.id)">
-               <p hidden>{{user.id}}</p>
-               <p>{{user?.username}}</p>
-               <p>Email: <a href="#">{{user?.email}}</a></p>
-               <p>Company: {{user?.company.name}}</p>
-               <p>Phone: <a href="#">{{user?.phone}}</a></p>
-             </li> 
-             <div *ngIf="done"> 
-               <li *ngFor="let post of posts" >
-                 <p><b>{{ post.title }}</b></p>
-                 <p>{{ post.body }}</p>
-             
-                </li>
-             </div>
- 
+             <li *ngFor="let comment of comments">
+               <!--<p hidden>{{comment.id}}</p>-->
+                <p><b>Title:{{comment?.name}}</b></p>
+                <p>Body: {{comment?.body}}</p>
+                <p><a href="#">Email: {{comment?.email}}</a></p>
+              </li>
           </ul>
-       </div>
+      </div>
+       
 
 `,
     providers: [HttpService]
@@ -35,23 +28,19 @@ import { Comment } from '../_models/comment';
 })
 export class CommentComponent implements  OnInit{
 
-    constructor(private httpService: HttpService) {
+    postId: number;
+
+    constructor(private httpService: HttpService, activateRoute: ActivatedRoute) {
+        this.postId = activateRoute.snapshot.params['postId'];
     }
-    users: User[]=[];
-    posts: Post[]=[];
-    // user = {};
+
+    comments: Comment[]=[];
+
     ngOnInit() {
-
-        this.httpService.getData().subscribe(data => this.users= data);
-    }
-
-    done: boolean = false;
-    getPost(userId:number) {
-        console.log(userId);
-        this.httpService.getPost(userId)
-            .subscribe((data) => {this.posts =data; this.done=true;});
+        this.httpService.getPost(this.postId).subscribe(data => this.comments = data);
 
     }
+
 
 }
 

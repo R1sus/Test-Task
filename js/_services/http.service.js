@@ -31,9 +31,11 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/map'], fun
                         .map(function (res) { return res.json(); });
                 };
                 HttpService.prototype.getPost = function (userId) {
-                    // return this.http.get('https://jsonplaceholder.typicode.com/users');
-                    // return this.http.get(this.testUrl).map(res => res.json());
                     return this.http.get("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
+                        .map(function (res) { return res.json(); });
+                };
+                HttpService.prototype.getComment = function (postId) {
+                    return this.http.get("https://jsonplaceholder.typicode.com/comments?postId=" + postId)
                         .map(function (res) { return res.json(); });
                 };
                 HttpService = __decorate([

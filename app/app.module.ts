@@ -8,6 +8,7 @@ import { routing }        from './app.routing';
 import { AppComponent }   from './app.component';
 import { UserComponent } from './users/users.component';
 import { PostComponent } from './posts/posts.component';
+import { CommentComponent } from './comments/comments.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { PostComponent } from './posts/posts.component';
     declarations: [
         AppComponent,
         UserComponent,
-        PostComponent
+        PostComponent,
+        CommentComponent
     ],
     bootstrap:    [
         AppComponent
