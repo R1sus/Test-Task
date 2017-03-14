@@ -1,0 +1,15 @@
+body {
+    width:100%;
+    position:relative;
+    margin: 0 auto;
+}
+.wrapper {
+    width:60%;
+    position: relative;
+    margin: 0 auto;
+}
+ul>li  {
+    background-color: darkgray;
+    border-radius: 5px;
+    border-color: black;
+}
