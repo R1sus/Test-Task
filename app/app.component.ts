@@ -3,7 +3,7 @@ import { HttpService} from './_services/http.service';
 
 @Component({
     selector: 'my-app',
-    template: `<h1>Добро пожаловать!</h1>
+    template: `<h1>Welcome!</h1>
     <router-outlet></router-outlet>
 `,
     styles: [` 

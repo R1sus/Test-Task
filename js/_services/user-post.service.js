@@ -11,7 +11,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/map'], fun
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var HttpService;
+    var UserPostService;
     return {
         setters:[
             function (core_1_1) {
@@ -22,31 +22,27 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/map'], fun
             },
             function (_1) {}],
         execute: function() {
-            HttpService = (function () {
-                function HttpService(http) {
+            UserPostService = (function () {
+                function UserPostService(http) {
                     this.http = http;
                 }
-                HttpService.prototype.getData = function () {
-                    return this.http.get("https://jsonplaceholder.typicode.com/users")
-                        .map(function (res) { return res.json(); });
-                };
-                HttpService.prototype.getPost = function (userId) {
+                UserPostService.prototype.getPost = function (userId) {
                     // return this.http.get('https://jsonplaceholder.typicode.com/users');
                     // return this.http.get(this.testUrl).map(res => res.json());
                     return this.http.get("https://jsonplaceholder.typicode.com/posts?userId=" + userId)
                         .map(function (res) { return res.json(); });
                 };
-                HttpService = __decorate([
+                UserPostService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], HttpService);
-                return HttpService;
+                ], UserPostService);
+                return UserPostService;
             }());
-            exports_1("HttpService", HttpService);
+            exports_1("UserPostService", UserPostService);
         }
     }
 });
 /**
  * Created by Nadine on 14.03.2017.
  */
-//# sourceMappingURL=http.service.js.map
+//# sourceMappingURL=user-post.service.js.map

@@ -8,8 +8,24 @@ body {
     position: relative;
     margin: 0 auto;
 }
+div {
+    width:100%;
+    margin: 0 auto;
+    position: relative;
+
+}
+h2 {
+    text-align: center;
+}
+ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
 ul>li  {
-    background-color: darkgray;
+    background-color: gainsboro;
     border-radius: 5px;
     border-color: black;
+    padding:10px;
+    margin-bottom: 10px;
 }

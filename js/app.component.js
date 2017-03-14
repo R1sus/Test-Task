@@ -27,7 +27,7 @@ System.register(['@angular/core', './_services/http.service'], function(exports_
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<h1>\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C!</h1>\n    <router-outlet></router-outlet>\n",
+                        template: "<h1>Welcome!</h1>\n    <router-outlet></router-outlet>\n",
                         styles: [" \n        .active a {\n        color:#606060;\n        }\n    "],
                         providers: [http_service_1.HttpService]
                     }), 

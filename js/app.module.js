@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/common', './app.routing', './app.component', './users/users.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', '@angular/common', './app.routing', './app.component', './users/users.component', './posts/posts.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, common_1, app_routing_1, app_component_1, users_component_1;
+    var core_1, platform_browser_1, forms_1, http_1, common_1, app_routing_1, app_component_1, users_component_1, posts_component_1;
     var AppModule;
     return {
         setters:[
@@ -37,6 +37,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             },
             function (users_component_1_1) {
                 users_component_1 = users_component_1_1;
+            },
+            function (posts_component_1_1) {
+                posts_component_1 = posts_component_1_1;
             }],
         execute: function() {
             AppModule = (function () {
@@ -55,7 +58,8 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                         ],
                         declarations: [
                             app_component_1.AppComponent,
-                            users_component_1.UserComponent
+                            users_component_1.UserComponent,
+                            posts_component_1.PostComponent
                         ],
                         bootstrap: [
                             app_component_1.AppComponent

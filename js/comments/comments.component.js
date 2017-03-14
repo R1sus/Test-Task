@@ -11,7 +11,7 @@ System.register(['@angular/core', '../_services/http.service'], function(exports
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_service_1;
-    var UserComponent;
+    var CommentComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,34 +21,40 @@ System.register(['@angular/core', '../_services/http.service'], function(exports
                 http_service_1 = http_service_1_1;
             }],
         execute: function() {
-            // import { Post } from '../_models/post';
-            UserComponent = (function () {
-                function UserComponent(httpService) {
+            CommentComponent = (function () {
+                function CommentComponent(httpService) {
                     this.httpService = httpService;
                     this.users = [];
+                    this.posts = [];
+                    this.done = false;
                 }
-                // posts: Post[]=[];
                 // user = {};
-                UserComponent.prototype.ngOnInit = function () {
+                CommentComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.httpService.getData().subscribe(function (data) { return _this.users = data; });
                 };
-                UserComponent = __decorate([
+                CommentComponent.prototype.getPost = function (userId) {
+                    var _this = this;
+                    console.log(userId);
+                    this.httpService.getPost(userId)
+                        .subscribe(function (data) { _this.posts = data; _this.done = true; });
+                };
+                CommentComponent = __decorate([
                     core_1.Component({
                         moduleId: module.id,
-                        selector: 'users',
-                        template: "<h2>Users</h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let user of users\"> \n             <!--(click)=\"getPost(user.id)\">-->\n               <p hidden>{{user.id}}</p>\n               <a [routerLink] = \"['posts', user.id ]\"> <p>{{user?.username}}</p></a>\n               <p>Email: <a href=\"#\">{{user?.email}}</a></p>\n               <p>Company: {{user?.company.name}}</p>\n               <p>Phone: <a href=\"#\">{{user?.phone}}</a></p>\n             </li> \n             <!--<div *ngIf=\"done\"> -->\n               <!--<li *ngFor=\"let post of posts\" >-->\n                 <!--<p><b>{{ post.title }}</b></p>-->\n                 <!--<p>{{ post.body }}</p>-->\n             <!---->\n                <!--</li>-->\n             <!--</div>-->\n \n          </ul>\n          <!--{{ user | json }}-->\n       </div>\n\n",
+                        selector: 'comments',
+                        template: "<h2>Comments on {{ post.title }}</h2>\n      <div>\n          <ul>\n             <li *ngFor=\"let user of users\" (click)=\"getPost(user.id)\">\n               <p hidden>{{user.id}}</p>\n               <p>{{user?.username}}</p>\n               <p>Email: <a href=\"#\">{{user?.email}}</a></p>\n               <p>Company: {{user?.company.name}}</p>\n               <p>Phone: <a href=\"#\">{{user?.phone}}</a></p>\n             </li> \n             <div *ngIf=\"done\"> \n               <li *ngFor=\"let post of posts\" >\n                 <p><b>{{ post.title }}</b></p>\n                 <p>{{ post.body }}</p>\n             \n                </li>\n             </div>\n \n          </ul>\n       </div>\n\n",
                         providers: [http_service_1.HttpService]
                     }), 
                     __metadata('design:paramtypes', [http_service_1.HttpService])
-                ], UserComponent);
-                return UserComponent;
+                ], CommentComponent);
+                return CommentComponent;
             }());
-            exports_1("UserComponent", UserComponent);
+            exports_1("CommentComponent", CommentComponent);
         }
     }
 });
 /**
- * Created by Nadine on 13.03.2017.
+ * Created by Nadine on 14.03.2017.
  */
-//# sourceMappingURL=users.component.js.map
+//# sourceMappingURL=comments.component.js.map
