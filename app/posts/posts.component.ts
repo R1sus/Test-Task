@@ -12,8 +12,8 @@ import { Post } from '../_models/post';
       <div>
           <ul>
              <li *ngFor="let post of posts">
-               <p hidden>{{post.id}}</p>
-               <a [routerLink] = "['comments', post.id]"><p><b>Title:{{post?.title}}</b></p></a>
+               <p hidden>{{post?.id}}</p>
+               <a [routerLink] = "['post', post.id]"><p><b>Title:{{post?.title}}</b></p></a>
                <p>Body: {{post?.body}}</p>
               
               </li>

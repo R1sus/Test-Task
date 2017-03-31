@@ -14,9 +14,9 @@ import { Comment } from '../_models/comment';
           <ul>
              <li *ngFor="let comment of comments">
                <!--<p hidden>{{comment.id}}</p>-->
-                <p><b>Title:{{comment?.name}}</b></p>
-                <p>Body: {{comment?.body}}</p>
-                <p><a href="#">Email: {{comment?.email}}</a></p>
+                <p><b>Title:{{comment.name}}</b></p>
+                <p>Body: {{comment.body}}</p>
+                <p><a href="#">Email: {{comment.email}}</a></p>
               </li>
           </ul>
       </div>

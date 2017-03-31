@@ -11,15 +11,15 @@ export class HttpService{
             .map((res:Response) => res.json());
     }
     getUser(id) {
-        return this.http.get(`https://jsonplaceholder.typicode.com/users?id=`+ id)
+        return this.http.get(`https://jsonplaceholder.typicode.com/users?id=${id}`)
             .map((res:Response) => res.json());
     }
     getPost(userId){
-        return this.http.get(`https://jsonplaceholder.typicode.com/posts?userId=`+ userId)
+        return this.http.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
             .map((res:Response) => res.json());
     }
     getComment(postId){
-        return this.http.get(`https://jsonplaceholder.typicode.com/comments?postId=`+ postId)
+        return this.http.get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
             .map((res:Response) => res.json());
     }
 }

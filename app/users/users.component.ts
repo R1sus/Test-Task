@@ -13,7 +13,7 @@ import { User } from '../_models/user';
              <li *ngFor="let user of users"> 
             
                <p hidden>{{user.id}}</p>
-               <a [routerLink] = "[ user.id, 'posts' ]"> <p>{{user?.username}}</p></a>
+               <a [routerLink] = "[ user.id ]"> <p>{{user?.username}}</p></a>
                <p>Email: <a href="#">{{user?.email}}</a></p>
                <p>Company: {{user?.company.name}}</p>
                <p>Phone: <a href="#">{{user?.phone}}</a></p>
